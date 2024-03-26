@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "grpc-template/pkg/note/v1/note;note";
+option go_package = "github.com/skantay/grpc-template/pkg/note/v1/note;note";
 
 service NoteV1 {
     rpc Create(CreateRequest) returns (CreateResponse);
@@ -32,9 +32,9 @@ message Note{
 
 message UpdateNoteInfo {
     google.protobuf.StringValue title = 1;
-    google.protobuf.StringValue context = 1;
-    google.protobuf.StringValue author = 1;
-    google.protobuf.BoolValue is_public = 1;
+    google.protobuf.StringValue context = 2;
+    google.protobuf.StringValue author = 3;
+    google.protobuf.BoolValue is_public = 4;
 }
 
 message CreateRequest {
