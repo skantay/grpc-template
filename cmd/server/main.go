@@ -5,12 +5,11 @@ import (
 	"log"
 	"net"
 
+	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	"github.com/skantay/grpc-template/pkg/note/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"google.golang.org/protobuf/types/known/wrapperspb"
-	"github.com/grpc-ecosystem/go-grpc-middleware"
-    validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 )
 
 type server struct {
@@ -23,9 +22,7 @@ func (s *server) Get(ctx context.Context, g *note.GetRequest) (*note.GetResponse
 		Note: &note.Note{
 			Id: g.Id,
 			Info: &note.NoteInfo{
-				Title: &wrapperspb.StringValue{
-					Value: "string",
-				},
+				Title: "sdf",
 			},
 		},
 	}, nil
